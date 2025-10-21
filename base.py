@@ -25,7 +25,6 @@ top20 = (
     .reset_index(name='boardings')
 )
 top20.to_csv('top20_am_peak.csv', index=False, encoding='utf-8-sig')
-print('>>> 已输出 top20_am_peak.csv')
 peak_day_line = (
     morning_peak.groupby(['date', '线路'])['卡号']
     .count()
@@ -36,3 +35,4 @@ weather_peak = peak_day_line.merge(
     on='date', how='left'
 )
 weather_peak.to_csv('target.csv', index=False, encoding='utf-8-sig')
+
